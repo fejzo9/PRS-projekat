@@ -2,6 +2,7 @@ package main;
 
 import algorithams.BubbleSort;
 import algorithams.InsertionSort;
+import algorithams.MergeSort;
 import algorithams.SelectionSort;
 
 public class Main {
@@ -11,7 +12,8 @@ public class Main {
 		  ispis(niz);
 //		  InsertionSort.insertionSort(niz);
 //		  SelectionSort.selectionSort(niz);
-		  BubbleSort.bubbleSort(niz);
+//		  BubbleSort.bubbleSort(niz);
+		  MergeSort.mergeSort(niz, 0, niz.length-1);
 		  ispis(niz);
 		
 	}
