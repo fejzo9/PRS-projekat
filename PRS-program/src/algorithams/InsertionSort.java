@@ -3,6 +3,7 @@ package algorithams;
 public class InsertionSort {
 
 	public static void insertionSort(int[] niz) {
+		
 		int i, j, priv;
 		
 		for(i=1;i<niz.length;i++){

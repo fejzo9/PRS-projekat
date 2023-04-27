@@ -2,64 +2,62 @@ package algorithams;
 
 public class MergeSort {
 
-	public static void mergeSort(int[] arr, int left, int right) {
-	    if (left < right) {
-	        // Find the middle point
-	        int mid = (left + right) / 2;
+	public static void mergeSort(int[] niz, int lijevi, int desni) {
+	    if (lijevi < desni) {
+	        
+	        int srednji = (lijevi + desni) / 2;
 
-	        // Sort first and second halves
-	        mergeSort(arr, left, mid);
-	        mergeSort(arr, mid + 1, right);
+	        // Sortiramo prvu i drugu polovicu
+	        mergeSort(niz, lijevi, srednji);
+	        mergeSort(niz, srednji + 1, desni);
 
-	        // Merge the sorted halves
-	        merge(arr, left, mid, right);
+	        // Spajamo sortirane polovice
+	        merge(niz, lijevi, srednji, desni);
 	    }
 	}
 	
-	public static void merge(int[] arr, int left, int mid, int right) {
-	    // Find sizes of two subarrays to be merged
-	    int n1 = mid - left + 1;
-	    int n2 = right - mid;
+	public static void merge(int[] niz, int lijevi, int srednji, int desni) {
+	    // Velicine dva podniza koji ce se spojiti
+	    int n1 = srednji - lijevi + 1;
+	    int n2 = desni - srednji;
 
-	    /* Create temporary arrays */
+	    /* Kreiranje pomocnih nizova */
 	    int[] L = new int[n1];
-	    int[] R = new int[n2];
+	    int[] D = new int[n2];
 
-	    /* Copy data to temporary arrays */
+	    /* Upisujemo podatke u nove nizove */
 	    for (int i = 0; i < n1; ++i)
-	        L[i] = arr[left + i];
+	        L[i] = niz[lijevi + i];
 	    for (int j = 0; j < n2; ++j)
-	        R[j] = arr[mid + 1 + j];
+	        D[j] = niz[srednji + 1 + j];
 
-	    /* Merge the temporary arrays */
+	    /* Spajamo podnizove */
 
-	    // Initial indexes of first and second subarrays
 	    int i = 0, j = 0;
-
-	    // Initial index of merged subarray
-	    int k = left;
+	    int k = lijevi;
+	    
 	    while (i < n1 && j < n2) {
-	        if (L[i] <= R[j]) {
-	            arr[k] = L[i];
+	        if (L[i] <= D[j]) {
+	        	niz[k] = L[i];
 	            i++;
 	        }
 	        else {
-	            arr[k] = R[j];
+	        	niz[k] = D[j];
 	            j++;
 	        }
 	        k++;
 	    }
 
-	    /* Copy remaining elements of L[] if any */
+	    /* Upisujemo ostale elemente iz L[] ako su ostali */
 	    while (i < n1) {
-	        arr[k] = L[i];
+	    	niz[k] = L[i];
 	        i++;
 	        k++;
 	    }
 
-	    /* Copy remaining elements of R[] if any */
+	    /* Upisujemo ostale elemente iz D[] ako su ostali */
 	    while (j < n2) {
-	        arr[k] = R[j];
+	    	niz[k] = D[j];
 	        j++;
 	        k++;
 	    }
