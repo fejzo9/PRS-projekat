@@ -10,7 +10,7 @@ public class QuickSort {
 	        }
 	    }
 	 
-	 private static int partition(int[] niz, int lijevi, int desni) {
+	 public static int partition(int[] niz, int lijevi, int desni) {
 	        int pivot = niz[desni];
 	        int i = lijevi - 1;
 	        for (int j = lijevi; j < desni; j++) {
