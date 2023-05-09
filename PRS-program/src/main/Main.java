@@ -39,6 +39,14 @@ public class Main {
 		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
 		  ispis(niz);
 		  startTime = System.currentTimeMillis();
+		  QuickSort.sort(niz, 0, niz.length - 1);
+		  endTime = System.currentTimeMillis();
+		  ispis(niz);
+		  System.out.println("\nVrijeme izvrsenja quicksorta = " + (endTime - startTime) + "ms");
+		  
+		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+		  ispis(niz);
+		  startTime = System.currentTimeMillis();
 		  ParallelQuickSort.parallelQuickSort(niz, 0, niz.length - 1);
 		  endTime = System.currentTimeMillis();
 		  ispis(niz);
