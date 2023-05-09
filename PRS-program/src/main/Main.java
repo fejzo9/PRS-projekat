@@ -1,11 +1,14 @@
 package main;
 
+import java.util.concurrent.ForkJoinPool;
+
 import algorithams.BubbleSort;
 import algorithams.InsertionSort;
 import algorithams.MergeSort;
 import algorithams.QuickSort;
 import algorithams.SelectionSort;
 import parallel.ParallelMergeSort;
+import parallel.ParallelQuickSort;
 
 public class Main {
 	public static void main(String[] args) {
@@ -23,7 +26,7 @@ public class Main {
 		  MergeSort.mergeSort(niz, 0, niz.length-1);
 		  endTime = System.currentTimeMillis();
 		  ispis(niz);
-		  System.out.println("\nVrijeme izvrsenja = " + (endTime - startTime) + "ms");
+		  System.out.println("\nVrijeme izvrsenja mergesorta = " + (endTime - startTime) + "ms");
 		  
 		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
 		  ispis(niz);
@@ -31,7 +34,23 @@ public class Main {
 		  ParallelMergeSort.parallelMergeSort(niz, 0, niz.length - 1);
 		  endTime = System.currentTimeMillis();
 		  ispis(niz);
-		  System.out.println("\nVrijeme izvrsenja = " + (endTime - startTime) + "ms");
+		  System.out.println("\nVrijeme izvrsenja paralelnog merge sorta = " + (endTime - startTime) + "ms");
+		  
+		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+		  ispis(niz);
+		  startTime = System.currentTimeMillis();
+		  QuickSort.sort(niz, 0, niz.length - 1);
+		  endTime = System.currentTimeMillis();
+		  ispis(niz);
+		  System.out.println("\nVrijeme izvrsenja quicksorta = " + (endTime - startTime) + "ms");
+		  
+		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+		  ispis(niz);
+		  startTime = System.currentTimeMillis();
+		  ParallelQuickSort.parallelQuickSort(niz, 0, niz.length - 1);
+		  endTime = System.currentTimeMillis();
+		  ispis(niz);
+		  System.out.println("\nVrijeme izvrsenja paralelnog quicksorta = " + (endTime - startTime) + "ms");
 	}
 	
 	
