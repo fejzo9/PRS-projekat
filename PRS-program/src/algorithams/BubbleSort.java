@@ -1,6 +1,6 @@
 package algorithams;
 
-public class BubbleSort {
+public class BubbleSort{
 	public static void sort(int[] niz) {
 		
 		int i, j, pom;

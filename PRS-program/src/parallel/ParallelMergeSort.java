@@ -5,7 +5,7 @@ import java.util.concurrent.RecursiveAction;
 
 import algorithams.MergeSort;
 
-public class ParallelMergeSort {
+public class ParallelMergeSort{
 
     public static void sort(int[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);

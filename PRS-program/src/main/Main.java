@@ -51,12 +51,31 @@ public class Main {
 		endTime = System.currentTimeMillis();
 		ispis(niz);
 		System.out.println("\nVrijeme izvrsenja paralelnog quicksorta = " + (endTime - startTime) + "ms");
-	}
-	
-	public static void test() {
 		
+//		niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+//		ispis(niz);
+//		startTime = System.currentTimeMillis();
+//		ParallelBubbleSort.sort(niz, 0, niz.length - 1);
+//		endTime = System.currentTimeMillis();
+//		ispis(niz);
+//		System.out.println("\nVrijeme izvrsenja paralelnog quicksorta = " + (endTime - startTime) + "ms");
+//		
+//		niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+//		ispis(niz);
+//		startTime = System.currentTimeMillis();
+//		ParallelInsertionSort.sort(niz, 0, niz.length - 1);
+//		endTime = System.currentTimeMillis();
+//		ispis(niz);
+//		System.out.println("\nVrijeme izvrsenja paralelnog quicksorta = " + (endTime - startTime) + "ms");
+//		
+//		niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+//		ispis(niz);
+//		startTime = System.currentTimeMillis();
+//		ParallelSelectionSort.sort(niz, 0, niz.length - 1);
+//		endTime = System.currentTimeMillis();
+//		ispis(niz);
+//		System.out.println("\nVrijeme izvrsenja paralelnog quicksorta = " + (endTime - startTime) + "ms");
 	}
-	
 	public static void ispis(int[] niz) {
 		int i;
 		System.out.print("\nNiz: ");
