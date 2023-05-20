@@ -23,7 +23,7 @@ public class Main {
 		startTime = System.currentTimeMillis();
 		MergeSort.sort(niz, 0, niz.length-1);
 		endTime = System.currentTimeMillis();
-		ispis(niz);
+		ispis(niz); 
 		System.out.println("\nVrijeme izvrsenja mergesorta = " + (endTime - startTime) + "ms\n");
 		
 		System.out.println("PARALELNI MERGE SORT");

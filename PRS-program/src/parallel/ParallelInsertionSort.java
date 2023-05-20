@@ -3,10 +3,9 @@ package parallel;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
-import algorithms.MergeSort;
-import parallel.ParallelMergeSort.SortTask;
+import parallel.ParallelBubbleSort.SortTask;
 
-public class ParallelBubbleSort {
+public class ParallelInsertionSort {
 
     public static void sort(int[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
@@ -16,10 +15,7 @@ public class ParallelBubbleSort {
     
     public static class SortTask extends RecursiveAction {
     	
-    	//Efikasnost granice mozemo eksperimentalno dokazati
-    	//a ako stavimo da je = 100 onda ce samo sekvencijalno sortirati nas mali niz
-    	//zato sada stoji 4
-    	private static final int GRANICA = 4;
+    	private static final int GRANICA = 100;
 		private int[] niz;
 		private int lijevi;
 		private int desni;
@@ -35,7 +31,7 @@ public class ParallelBubbleSort {
 		protected void compute() {
 			if(desni - lijevi <= GRANICA) {
 				//Sortiranje podniza bubble sortom
-				 for (int i = lijevi + 1; i < desni + 1; i++) {
+				 for (int i = lijevi; i < desni; i++) {
 		                for (int j = lijevi; j < desni; j++) {
 		                    if (niz[j] > niz[j + 1]) {
 		                    	
@@ -54,8 +50,6 @@ public class ParallelBubbleSort {
 				SortTask drugaPolovina = new SortTask(niz, srednji + 1, desni);
 				
 				invokeAll(prvaPolovina, drugaPolovina);
-				//Spajanje sortiranih nizova
-				MergeSort.merge(niz, lijevi, srednji, desni);
 			}
 			
 		}
