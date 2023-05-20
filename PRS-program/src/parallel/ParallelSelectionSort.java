@@ -18,7 +18,7 @@ public class ParallelSelectionSort {
     	//Efikasnost granice mozemo eksperimentalno dokazati
     	//a ako stavimo da je = 100 onda ce samo sekvencijalno sortirati nas mali niz
     	//zato sada stoji 4
-    	private static final int GRANICA = 1;
+    	private static final int GRANICA = 4;
 		private int[] niz;
 		private int lijevi;
 		private int desni;
@@ -33,16 +33,15 @@ public class ParallelSelectionSort {
 		@Override
 		protected void compute() {
 			if(desni - lijevi <= GRANICA) {
-				int i, j, pom, min;
 				//Sortiranje podniza selection sortom
-				 for (i = lijevi; i < desni; i++) {
-					 min = i;
-		               for(j = i + 1; j < desni + 1; j++) {
+				 for (int i = lijevi; i < desni; i++) {
+					 int min = i;
+		               for(int j = i + 1; j < desni + 1; j++) {
 		            	   if(niz[j] < niz[min])
 		            		   min = j;
 		               }
 		               
-						pom = niz[min];
+						int pom = niz[min];
 						niz[min] = niz[i];
 						niz[i] = pom;
 					}

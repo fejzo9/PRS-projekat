@@ -33,12 +33,14 @@ public class ParallelInsertionSort {
 		@Override
 		protected void compute() {
 			if(desni - lijevi <= GRANICA) {
-				int i, j, pom;
+
 				//Sortiranje podniza insertion sortom
-				 for (i = lijevi + 1; i < desni + 1; i++) {
-					 j = i;
+				 for (int i = lijevi + 1; i < desni + 1; i++) {
+					 
+					 int j = i;
+					 
 		               while(j > lijevi && niz[j - 1] > niz[j]) {
-		            	   pom = niz[j - 1];
+		            	   int pom = niz[j - 1];
 		            	   niz[j - 1] = niz[j];
 		            	   niz[j] = pom;
 		            	   j--;

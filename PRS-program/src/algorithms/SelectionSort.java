@@ -4,21 +4,18 @@ public class SelectionSort {
 
 	public static void sort(int[] niz) {
 	
-		int i,min,j,pom;
-	
-		for(i=0;i<niz.length-1;i++){
+		for(int i = 0; i < niz.length - 1; i++){
             
-			min=i;
+			int min = i;
 			            
-			for(j=i+1;j<niz.length;j++){			                
-				if(niz[j]<niz[min]){
-			            min=j;
-			            }
+			for(int j = i + 1; j < niz.length; j++){			                
+				if(niz[j] < niz[min])
+					min = j;
 			       }
 			
-				pom=niz[min];
+				int pom = niz[min];
 				niz[min] = niz[i];
-				niz[i]=pom;
+				niz[i] = pom;
 		}
 	}
 }

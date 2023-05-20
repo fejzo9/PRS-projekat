@@ -30,14 +30,14 @@ public class ParallelMergeSort{
 		protected void compute() {
 			
 			if(lijevi < desni) {
-				
+				//Podjela zadatka na podzadatke
 				 int srednji = (lijevi + desni) / 2;
 				 
 				 SortTask prvaPolovina = new SortTask(niz, lijevi, srednji);
 				 SortTask drugaPolovina = new SortTask(niz, srednji + 1, desni);
 				 
 				 invokeAll(prvaPolovina, drugaPolovina);
-				 
+				 //Spajamo rezultate
 				 MergeSort.merge(niz, lijevi, srednji, desni);
 			}
 		}

@@ -4,17 +4,15 @@ public class InsertionSort {
 
 	public static void sort(int[] niz) {
 		
-		int i, j, priv;
-		
-		for(i=1;i<niz.length;i++){
+		for(int i = 1; i < niz.length; i++){
 			
-			j=i;	
+			int j = i;	
 			
-			while(j>0 && niz[j-1]>niz[j]){
+			while(j > 0 && niz[j - 1] > niz[j]){
 				
-				priv=niz[j-1];			               
-				niz[j-1]=niz[j];			               
-				niz[j]=priv;               
+				int pom = niz[j - 1];			               
+				niz[j - 1] = niz[j];			               
+				niz[j] = pom;               
 				j--;
 			}
 		}
