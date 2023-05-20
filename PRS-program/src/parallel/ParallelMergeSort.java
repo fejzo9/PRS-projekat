@@ -31,7 +31,7 @@ public class ParallelMergeSort{
 			
 			if(lijevi < desni) {
 				//Podjela zadatka na podzadatke
-				 int srednji = (lijevi + desni) / 2;
+				 int srednji = lijevi + (desni - lijevi) / 2;
 				 
 				 SortTask prvaPolovina = new SortTask(niz, lijevi, srednji);
 				 SortTask drugaPolovina = new SortTask(niz, srednji + 1, desni);
