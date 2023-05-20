@@ -2,7 +2,7 @@ package algorithams;
 
 public class SelectionSort {
 
-	public static void selectionSort(int[] niz) {
+	public static void sort(int[] niz) {
 	
 		int i, min,j,pom;
 	

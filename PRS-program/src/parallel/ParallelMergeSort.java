@@ -7,7 +7,7 @@ import algorithams.MergeSort;
 
 public class ParallelMergeSort {
 
-    public static void parallelMergeSort(int[] niz, int lijevi, int desni) {
+    public static void sort(int[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);

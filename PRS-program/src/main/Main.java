@@ -17,42 +17,45 @@ public class Main {
 		long endTime;
 		
 		int[] niz={3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
-		  ispis(niz);
+		ispis(niz);
 //		  InsertionSort.insertionSort(niz);
 //		  SelectionSort.selectionSort(niz);
 //		  BubbleSort.bubbleSort(niz);
 //		  QuickSort.sort(niz, 0, niz.length-1);	
-		  startTime = System.currentTimeMillis();
-		  MergeSort.mergeSort(niz, 0, niz.length-1);
-		  endTime = System.currentTimeMillis();
-		  ispis(niz);
-		  System.out.println("\nVrijeme izvrsenja mergesorta = " + (endTime - startTime) + "ms");
+		startTime = System.currentTimeMillis();
+		MergeSort.sort(niz, 0, niz.length-1);
+		endTime = System.currentTimeMillis();
+		ispis(niz);
+		System.out.println("\nVrijeme izvrsenja mergesorta = " + (endTime - startTime) + "ms");
 		  
-		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
-		  ispis(niz);
-		  startTime = System.currentTimeMillis();
-		  ParallelMergeSort.parallelMergeSort(niz, 0, niz.length - 1);
-		  endTime = System.currentTimeMillis();
-		  ispis(niz);
-		  System.out.println("\nVrijeme izvrsenja paralelnog merge sorta = " + (endTime - startTime) + "ms");
+		niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+		ispis(niz);
+		startTime = System.currentTimeMillis();
+		ParallelMergeSort.sort(niz, 0, niz.length - 1);
+		endTime = System.currentTimeMillis();
+		ispis(niz);
+		System.out.println("\nVrijeme izvrsenja paralelnog merge sorta = " + (endTime - startTime) + "ms");
 		  
-		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
-		  ispis(niz);
-		  startTime = System.currentTimeMillis();
-		  QuickSort.sort(niz, 0, niz.length - 1);
-		  endTime = System.currentTimeMillis();
-		  ispis(niz);
-		  System.out.println("\nVrijeme izvrsenja quicksorta = " + (endTime - startTime) + "ms");
+		niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+		ispis(niz);
+		startTime = System.currentTimeMillis();
+		QuickSort.sort(niz, 0, niz.length - 1);
+		endTime = System.currentTimeMillis();
+		ispis(niz);
+		System.out.println("\nVrijeme izvrsenja quicksorta = " + (endTime - startTime) + "ms");
 		  
-		  niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
-		  ispis(niz);
-		  startTime = System.currentTimeMillis();
-		  ParallelQuickSort.parallelQuickSort(niz, 0, niz.length - 1);
-		  endTime = System.currentTimeMillis();
-		  ispis(niz);
-		  System.out.println("\nVrijeme izvrsenja paralelnog quicksorta = " + (endTime - startTime) + "ms");
+		niz = new int[] {3,7,0,2,44,-23,8,1,14,2,-8,9,5,6,4,3,1};
+		ispis(niz);
+		startTime = System.currentTimeMillis();
+		ParallelQuickSort.sort(niz, 0, niz.length - 1);
+		endTime = System.currentTimeMillis();
+		ispis(niz);
+		System.out.println("\nVrijeme izvrsenja paralelnog quicksorta = " + (endTime - startTime) + "ms");
 	}
 	
+	public static void test() {
+		
+	}
 	
 	public static void ispis(int[] niz) {
 		int i;

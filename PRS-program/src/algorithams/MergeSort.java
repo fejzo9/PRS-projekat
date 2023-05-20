@@ -2,14 +2,14 @@ package algorithams;
 
 public class MergeSort {
 
-	public static void mergeSort(int[] niz, int lijevi, int desni) {
+	public static void sort(int[] niz, int lijevi, int desni) {
 	    if (lijevi < desni) {
 	        
 	        int srednji = (lijevi + desni) / 2;
 
 	        // Sortiramo prvu i drugu polovicu
-	        mergeSort(niz, lijevi, srednji);
-	        mergeSort(niz, srednji + 1, desni);
+	        sort(niz, lijevi, srednji);
+	        sort(niz, srednji + 1, desni);
 
 	        // Spajamo sortirane polovice
 	        merge(niz, lijevi, srednji, desni);

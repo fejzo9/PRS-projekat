@@ -2,7 +2,7 @@ package algorithams;
 
 public class InsertionSort {
 
-	public static void insertionSort(int[] niz) {
+	public static void sort(int[] niz) {
 		
 		int i, j, priv;
 		

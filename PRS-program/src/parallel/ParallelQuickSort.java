@@ -8,7 +8,7 @@ import parallel.ParallelMergeSort.SortTask;
 
 public class ParallelQuickSort {
 
-	public static void parallelQuickSort(int[] niz, int lijevi, int desni) {
+	public static void sort(int[] niz, int lijevi, int desni) {
 		SortTask task = new SortTask(niz, lijevi, desni);
 		ForkJoinPool pool = new ForkJoinPool();
 		pool.invoke(task);

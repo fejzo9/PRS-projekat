@@ -1,7 +1,7 @@
 package algorithams;
 
 public class BubbleSort {
-	public static void bubbleSort(int[] niz) {
+	public static void sort(int[] niz) {
 		
 		int i, j, pom;
 		for(i=1;i<niz.length;i++){
