@@ -3,7 +3,7 @@ package parallel;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
-import algorithams.QuickSort;
+import algorithms.QuickSort;
 import parallel.ParallelMergeSort.SortTask;
 
 public class ParallelQuickSort {
