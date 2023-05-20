@@ -5,7 +5,7 @@ import java.util.concurrent.RecursiveAction;
 
 import algorithms.MergeSort;
 
-public class ParallelInsertionSort {
+public class ParallelSelectionSort {
 
     public static void sort(int[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
@@ -18,7 +18,7 @@ public class ParallelInsertionSort {
     	//Efikasnost granice mozemo eksperimentalno dokazati
     	//a ako stavimo da je = 100 onda ce samo sekvencijalno sortirati nas mali niz
     	//zato sada stoji 4
-    	private static final int GRANICA = 4;
+    	private static final int GRANICA = 1;
 		private int[] niz;
 		private int lijevi;
 		private int desni;
@@ -33,16 +33,18 @@ public class ParallelInsertionSort {
 		@Override
 		protected void compute() {
 			if(desni - lijevi <= GRANICA) {
-				int i, j, pom;
-				//Sortiranje podniza insertion sortom
-				 for (i = lijevi + 1; i < desni + 1; i++) {
-					 j = i;
-		               while(j > lijevi && niz[j - 1] > niz[j]) {
-		            	   pom = niz[j - 1];
-		            	   niz[j - 1] = niz[j];
-		            	   niz[j] = pom;
-		            	   j--;
+				int i, j, pom, min;
+				//Sortiranje podniza selection sortom
+				 for (i = lijevi; i < desni; i++) {
+					 min = i;
+		               for(j = i + 1; j < desni + 1; j++) {
+		            	   if(niz[j] < niz[min])
+		            		   min = j;
 		               }
+		               
+						pom = niz[min];
+						niz[min] = niz[i];
+						niz[i] = pom;
 					}
 			} 
 			else {

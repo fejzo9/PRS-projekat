@@ -4,7 +4,6 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
 import algorithms.MergeSort;
-import parallel.ParallelMergeSort.SortTask;
 
 public class ParallelBubbleSort {
 

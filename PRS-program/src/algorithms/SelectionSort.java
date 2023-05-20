@@ -4,7 +4,7 @@ public class SelectionSort {
 
 	public static void sort(int[] niz) {
 	
-		int i, min,j,pom;
+		int i,min,j,pom;
 	
 		for(i=0;i<niz.length-1;i++){
             
