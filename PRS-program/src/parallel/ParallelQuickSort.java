@@ -6,9 +6,9 @@ import java.util.concurrent.RecursiveAction;
 import algorithms.QuickSort;
 import parallel.ParallelMergeSort.SortTask;
 
-public class ParallelQuickSort {
+public class ParallelQuickSort{
 
-	public static void sort(int[] niz, int lijevi, int desni) {
+	public void sort(double[] niz, int lijevi, int desni) {
 		SortTask task = new SortTask(niz, lijevi, desni);
 		ForkJoinPool pool = new ForkJoinPool();
 		pool.invoke(task);
@@ -16,11 +16,11 @@ public class ParallelQuickSort {
 	
 	public static class SortTask extends RecursiveAction {
 		
-		private int[] niz;
+		private double[] niz;
 		private int lijevi;
 		private int desni;
 		
-		public SortTask(int[] niz, int lijevi, int desni) {
+		public SortTask(double[] niz, int lijevi, int desni) {
 			super();
 			this.niz = niz;
 			this.lijevi = lijevi;

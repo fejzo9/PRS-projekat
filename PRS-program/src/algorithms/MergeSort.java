@@ -1,8 +1,8 @@
 package algorithms;
 
-public class MergeSort {
+public class MergeSort{
 
-	public static void sort(int[] niz, int lijevi, int desni) {
+	public void sort(double[] niz, int lijevi, int desni) {
 	    if (lijevi < desni) {
 	        
 	        int srednji = (lijevi + desni) / 2;
@@ -16,14 +16,14 @@ public class MergeSort {
 	    }
 	}
 	
-	public static void merge(int[] niz, int lijevi, int srednji, int desni) {
+	public static void merge(double[] niz, int lijevi, int srednji, int desni) {
 	    // Velicine dva podniza koji ce se spojiti
 	    int n1 = srednji - lijevi + 1;
 	    int n2 = desni - srednji;
 
 	    /* Kreiranje pomocnih nizova */
-	    int[] L = new int[n1];
-	    int[] D = new int[n2];
+	    double[] L = new double[n1];
+	    double[] D = new double[n2];
 
 	    /* Upisujemo podatke u nove nizove */
 	    for (int i = 0; i < n1; ++i)

@@ -5,9 +5,9 @@ import java.util.concurrent.RecursiveAction;
 
 import algorithms.MergeSort;
 
-public class ParallelBubbleSort {
+public class ParallelBubbleSort{
 
-    public static void sort(int[] niz, int lijevi, int desni) {
+    public void sort(double[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);
@@ -19,11 +19,11 @@ public class ParallelBubbleSort {
     	//a ako stavimo da je = 100 onda ce samo sekvencijalno sortirati nas mali niz
     	//zato sada stoji 4
     	private static final int GRANICA = 4;
-		private int[] niz;
+		private double[] niz;
 		private int lijevi;
 		private int desni;
 
-		public SortTask(int[] niz, int lijevi, int desni) {
+		public SortTask(double[] niz, int lijevi, int desni) {
 			super();
 			this.niz = niz;
 			this.lijevi = lijevi;
@@ -39,7 +39,7 @@ public class ParallelBubbleSort {
 		                	
 		                    if (niz[j] > niz[j + 1]) {
 		                    	
-		                        int temp = niz[j];
+		                        double temp = niz[j];
 		                        niz[j] = niz[j + 1];
 		                        niz[j + 1] = temp;
 		                    }

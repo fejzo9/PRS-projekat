@@ -7,7 +7,7 @@ import algorithms.MergeSort;
 
 public class ParallelSelectionSort {
 
-    public static void sort(int[] niz, int lijevi, int desni) {
+    public void sort(double[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);
@@ -19,11 +19,11 @@ public class ParallelSelectionSort {
     	//a ako stavimo da je = 100 onda ce samo sekvencijalno sortirati nas mali niz
     	//zato sada stoji 4
     	private static final int GRANICA = 4;
-		private int[] niz;
+		private double[] niz;
 		private int lijevi;
 		private int desni;
 
-		public SortTask(int[] niz, int lijevi, int desni) {
+		public SortTask(double[] niz, int lijevi, int desni) {
 			super();
 			this.niz = niz;
 			this.lijevi = lijevi;
@@ -41,7 +41,7 @@ public class ParallelSelectionSort {
 		            		   min = j;
 		               }
 		               
-						int pom = niz[min];
+						double pom = niz[min];
 						niz[min] = niz[i];
 						niz[i] = pom;
 					}
