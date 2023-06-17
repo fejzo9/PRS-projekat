@@ -5,13 +5,12 @@ import java.util.concurrent.RecursiveAction;
 
 import algorithms.QuickSort;
 import algorithms.Sort;
-import parallel.ParallelMergeSort.SortTask;
 
-public class ParallelQuickSort implements Sort{
+public class ParallelQuickSort <T extends Comparable<T>> implements Sort<T>{
 
 	@Override
-	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
-		SortTask task = new SortTask(niz, lijevi, desni);
+	public void sort(T[] niz, int lijevi, int desni) {
+		SortTask<T> task = new SortTask<T>(niz, lijevi, desni);
 		ForkJoinPool pool = new ForkJoinPool();
 		pool.invoke(task);
 	}
@@ -36,8 +35,8 @@ public class ParallelQuickSort implements Sort{
 				
 				int pivot = QuickSort.partition(niz, lijevi, desni);
 				
-				SortTask lijevaStrana = new SortTask(niz, lijevi, pivot - 1);
-				SortTask desnaStrana = new SortTask(niz, pivot + 1, desni);
+				SortTask<?> lijevaStrana = new SortTask<T>(niz, lijevi, pivot - 1);
+				SortTask<?> desnaStrana = new SortTask<T>(niz, pivot + 1, desni);
 				
 				invokeAll(lijevaStrana, desnaStrana);
 			}

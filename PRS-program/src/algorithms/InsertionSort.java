@@ -1,9 +1,9 @@
 package algorithms;
 
-public class InsertionSort implements Sort{
+public class InsertionSort <T extends Comparable<T>> implements Sort<T>{
 
 	@Override
-	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
+	public void sort(T[] niz, int lijevi, int desni) {
 		
 		 for (int i = lijevi + 1; i < desni + 1; i++) {
 			 
