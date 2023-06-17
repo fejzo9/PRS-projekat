@@ -2,10 +2,10 @@ package algorithms;
 
 import java.lang.reflect.Array;
 
-public class MergeSort implements Sort{
+public class MergeSort <T extends Comparable<T>> implements Sort{
 
 	@Override
-	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
+	public void sort(T[] niz, int lijevi, int desni) {
 	    if (lijevi < desni) {
 	        
 	        int srednji = (lijevi + desni) / 2;
