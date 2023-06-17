@@ -3,22 +3,29 @@ package main;
 import algorithms.BubbleSort;
 import algorithms.QuickSort;
 import algorithms.Sort;
+import model.Algoritam;
 import model.SortModel;
 import parallel.ParallelQuickSort;
 
 public class Main {
 	public static void main(String[] args) {
 		
-		final int duzinaNiza = 10000;
-		
 		SortModel sortModel = new SortModel();
+		
 
 //		testiraj(new BubbleSort(), sortModel.randomCijeli(duzinaNiza));
-//		testiraj(new BubbleSort(), sortModel.randomFloatovi(duzinaNiza));
+//		testiraj(new BubbleSort(), sortModel.randomDoublesi(duzinaNiza));
 //		testiraj(new QuickSort(), sortModel.randomCijeli(duzinaNiza));
 //		testiraj(new QuickSort(), sortModel.randomDoublesi(duzinaNiza));
-		testiraj(new ParallelQuickSort(), sortModel.randomCijeli(duzinaNiza));
-//		testiraj(new ParallelQuickSort(), sortModel.randomFloatovi(duzinaNiza));
+//		testiraj(new ParallelQuickSort(), sortModel.randomCijeli(duzinaNiza));
+//		testiraj(new ParallelQuickSort(), sortModel.randomDoublesi(duzinaNiza));
+		
+//		String[] niz = {"s", "h", "b", "w", "y", "u", "t", "z", "s", "d", "a", "b", "d", "y"};
+// 		testiraj(new BubbleSort(), niz);
+		
+		System.out.println(sortModel.demonstrirajSortiranje(Algoritam.MERGE, true, 1000, false));
+		
+//		testiraj(new ParallelQuickSort(), sortModel.randomDoublesi(1000));
 	}
 	/**
 	 * 
@@ -28,11 +35,11 @@ public class Main {
 	 */
 	public static <T extends Comparable<T>> void testiraj(Sort sorter, T[] niz) {
 		System.out.println(sorter + " sa nizom " + niz.getClass().getSimpleName());
-//		ispis(niz);
+		ispis(niz);
 		double pocetnoVrijeme = System.currentTimeMillis();
 		sorter.sort(niz, 0, niz.length - 1);
 		double zavrsnoVrijeme = System.currentTimeMillis();
-//		ispis(niz);
+		ispis(niz);
 		System.out.println("\nVrijeme izvrsenja = " + (zavrsnoVrijeme - pocetnoVrijeme) + "ms\n");
 	}
 	
