@@ -1,8 +1,11 @@
 package algorithms;
 
-public class MergeSort{
+import java.lang.reflect.Array;
 
-	public void sort(double[] niz, int lijevi, int desni) {
+public class MergeSort implements Sort{
+
+	@Override
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
 	    if (lijevi < desni) {
 	        
 	        int srednji = (lijevi + desni) / 2;
@@ -16,14 +19,14 @@ public class MergeSort{
 	    }
 	}
 	
-	public static void merge(double[] niz, int lijevi, int srednji, int desni) {
+	public static <T extends Comparable<T>> void merge(T[] niz, int lijevi, int srednji, int desni) {
 	    // Velicine dva podniza koji ce se spojiti
 	    int n1 = srednji - lijevi + 1;
 	    int n2 = desni - srednji;
-
+	    
 	    /* Kreiranje pomocnih nizova */
-	    double[] L = new double[n1];
-	    double[] D = new double[n2];
+	    T[] L = (T[]) new Object[n1];
+	    T[] D = (T[]) new Object[n2];
 
 	    /* Upisujemo podatke u nove nizove */
 	    for (int i = 0; i < n1; ++i)
@@ -37,7 +40,7 @@ public class MergeSort{
 	    int k = lijevi;
 	    
 	    while (i < n1 && j < n2) {
-	        if (L[i] <= D[j]) {
+	        if (L[i].compareTo(D[j]) <= 0) {
 	        	niz[k] = L[i];
 	            i++;
 	        }
