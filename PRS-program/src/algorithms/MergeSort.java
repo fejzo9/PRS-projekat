@@ -2,7 +2,7 @@ package algorithms;
 
 import java.lang.reflect.Array;
 
-public class MergeSort <T extends Comparable<T>> implements Sort{
+public class MergeSort <T extends Comparable<T>> implements Sort<T>{
 
 	@Override
 	public void sort(T[] niz, int lijevi, int desni) {
