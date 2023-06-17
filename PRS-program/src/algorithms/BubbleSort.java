@@ -1,9 +1,9 @@
 package algorithms;
 
-public class BubbleSort<T extends Comparable<T>> implements Sort<T>{
+public class BubbleSort implements Sort{
 	
 	@Override
-	public void sort(T[] niz, int lijevi, int desni) {
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
 		 for (int i = lijevi + 1; i < desni + 1; i++) {
              for (int j = lijevi; j < desni; j++) {
              	

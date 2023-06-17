@@ -1,9 +1,9 @@
 package algorithms;
 
-public class QuickSort <T extends Comparable<T>> implements Sort<T> {
+public class QuickSort implements Sort {
 	
 	@Override
-	public void sort(T[] niz, int lijevi, int desni) {
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
 	        if (lijevi < desni) {
 	            int pivotIndex = partition(niz, lijevi, desni);
 	            sort(niz, lijevi, pivotIndex - 1);

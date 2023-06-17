@@ -4,22 +4,24 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
 import algorithms.MergeSort;
+import algorithms.Sort;
 
-public class ParallelMergeSort{
+public class ParallelMergeSort implements Sort{
 
-    public void sort(double[] niz, int lijevi, int desni) {
+	@Override
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);
     }
 	
-	public static class SortTask extends RecursiveAction {
+	public static class SortTask <T extends Comparable<T>> extends RecursiveAction {
 
-		private double[] niz;
+		private T[] niz;
 		private int lijevi;
 		private int desni;
 
-		public SortTask(double[] niz, int lijevi, int desni) {
+		public SortTask(T[] niz, int lijevi, int desni) {
 			super();
 			this.niz = niz;
 			this.lijevi = lijevi;

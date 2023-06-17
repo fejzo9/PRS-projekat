@@ -4,26 +4,28 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
 import algorithms.MergeSort;
+import algorithms.Sort;
 
-public class ParallelInsertionSort {
+public class ParallelInsertionSort implements Sort{
 
-    public void sort(double[] niz, int lijevi, int desni) {
+	@Override
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);
     }
     
-    public static class SortTask extends RecursiveAction {
+    public static class SortTask <T extends Comparable<T>> extends RecursiveAction {
     	
     	//Efikasnost granice mozemo eksperimentalno dokazati
     	//a ako stavimo da je = 100 onda ce samo sekvencijalno sortirati nas mali niz
     	//zato sada stoji 4
     	private static final int GRANICA = 4;
-		private double[] niz;
+		private T[] niz;
 		private int lijevi;
 		private int desni;
 
-		public SortTask(double[] niz, int lijevi, int desni) {
+		public SortTask(T[] niz, int lijevi, int desni) {
 			super();
 			this.niz = niz;
 			this.lijevi = lijevi;
@@ -39,8 +41,8 @@ public class ParallelInsertionSort {
 					 
 					 int j = i;
 					 
-		               while(j > lijevi && niz[j - 1] > niz[j]) {
-		            	   double pom = niz[j - 1];
+					 while(j > lijevi && niz[j - 1].compareTo(niz[j]) > 0) {
+		            	   T pom = niz[j - 1];
 		            	   niz[j - 1] = niz[j];
 		            	   niz[j] = pom;
 		            	   j--;

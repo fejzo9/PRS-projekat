@@ -4,8 +4,9 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
 import algorithms.MergeSort;
+import algorithms.Sort;
 
-public class ParallelBubbleSort {
+public class ParallelBubbleSort implements Sort{
 
 	@Override
 	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
@@ -38,11 +39,10 @@ public class ParallelBubbleSort {
 				 for (int i = lijevi + 1; i < desni + 1; i++) {
 		                for (int j = lijevi; j < desni; j++) {
 		                	
-		                    if (niz[j] > niz[j + 1]) {
-		                    	
-		                        double temp = niz[j];
-		                        niz[j] = niz[j + 1];
-		                        niz[j + 1] = temp;
+		                    if (niz[j].compareTo(niz[j+1]) > 0) {
+		                   	 T temp = niz[j];
+		               		 niz[j] = niz[j + 1];
+		               		 niz[j + 1] = temp;
 		                    }
 		                }
 					}
