@@ -27,4 +27,9 @@ public class QuickSort implements Sort {
 	        niz[desni] = temp;
 	        return i + 1;
 	    }
+	 
+		@Override
+		public String toString() {
+			return "Sekvencijalni " + getClass().getSimpleName();
+		}
 }

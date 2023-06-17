@@ -13,9 +13,12 @@ public class Main {
 		
 		SortModel sortModel = new SortModel();
 		
-		System.out.println("SEKVENCIJALNI BUBBLE SORT SA INTEGERIMA");
+		BubbleSort bubbleSort = new BubbleSort();
 		Integer[] nizInt = sortModel.getRandomInts(50);
-		testiraj(nizInt, new BubbleSort());
+		testiraj(nizInt, bubbleSort);
+		
+		Double[] nizDouble = sortModel.getRandomDoubles(50);
+		testiraj(nizDouble, bubbleSort);
 		
 //		System.out.println("SEKVENCIJALNI BUBBLE SORT SA DOUBLESIMA");
 //		Double[] nizDub = sortModel.getRandomDoubles(50);
@@ -49,6 +52,7 @@ public class Main {
 	}
 	
 	public static <T extends Comparable<T>> void testiraj(T[] niz, Sort sorter) {
+		System.out.println(sorter + " sa nizom " + niz.getClass().getSimpleName());
 		ispis(niz);
 		double startTime = System.currentTimeMillis();
 		sorter.sort(niz, 0, niz.length - 1);

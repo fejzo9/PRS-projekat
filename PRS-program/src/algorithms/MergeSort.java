@@ -65,4 +65,9 @@ public class MergeSort implements Sort{
 	        k++;
 	    }
 	}
+	
+	@Override
+	public String toString() {
+		return "Sekvencijalni " + getClass().getSimpleName();
+	}
 }

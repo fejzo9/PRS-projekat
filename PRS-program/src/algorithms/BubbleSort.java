@@ -15,5 +15,10 @@ public class BubbleSort implements Sort{
              }
 		}		  
 	}
+	
+	@Override
+	public String toString() {
+		return "Sekvencijalni " + getClass().getSimpleName();
+	}
 }
 

@@ -18,4 +18,9 @@ public class InsertionSort implements Sort{
 			}
 			  
 	}
+	
+	@Override
+	public String toString() {
+		return "Sekvencijalni " + getClass().getSimpleName();
+	}
 }

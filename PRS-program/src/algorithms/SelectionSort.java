@@ -17,5 +17,10 @@ public class SelectionSort implements Sort{
 				niz[i] = pom;
 			}
 	}
+	
+	@Override
+	public String toString() {
+		return "Sekvencijalni " + getClass().getSimpleName();
+	}
 }
 
