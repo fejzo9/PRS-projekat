@@ -24,9 +24,9 @@ public class Main {
 //		String[] niz = {"s", "h", "b", "w", "y", "u", "t", "z", "s", "d", "a", "b", "d", "y"};
 // 		testiraj(new BubbleSort(), niz);
 		
-//		System.out.println(sortModel.demonstrirajSortiranje(Algoritam.MERGE, true, 1000, false));
+		System.out.println(sortModel.demonstrirajSortiranje(Algoritam.MERGE, true, 1000, false));
 		
-		testiraj(new ParallelMergeSort<>(), sortModel.randomDoublesi(100));
+//		testiraj(new ParallelMergeSort<>(), sortModel.randomDoublesi(100));
 //		testiraj(new ParallelQuickSort(), sortModel.randomDoublesi(1000));
 	}
 	/**

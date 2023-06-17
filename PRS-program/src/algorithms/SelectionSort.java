@@ -1,9 +1,9 @@
 package algorithms;
 
-public class SelectionSort <T extends Comparable<T>> implements Sort<T>{
+public class SelectionSort implements Sort{
 
 	@Override
-	public void sort(T[] niz, int lijevi, int desni) {
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
 	
 		 for (int i = lijevi; i < desni; i++) {
 			 int min = i;

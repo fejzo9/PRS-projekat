@@ -6,11 +6,11 @@ import java.util.concurrent.RecursiveAction;
 import algorithms.MergeSort;
 import algorithms.Sort;
 
-public class ParallelMergeSort <T extends Comparable<T>> implements Sort<T>{
+public class ParallelMergeSort implements Sort{
 
 	@Override
-	public void sort(T[] niz, int lijevi, int desni) {
-        SortTask<?> task = new SortTask<T>(niz, lijevi, desni);
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
+        SortTask task = new SortTask(niz, lijevi, desni);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);
     }
@@ -35,8 +35,8 @@ public class ParallelMergeSort <T extends Comparable<T>> implements Sort<T>{
 				//Podjela zadatka na podzadatke
 				 int srednji = lijevi + (desni - lijevi) / 2;
 				 
-				 SortTask<?> prvaPolovina = new SortTask<T>(niz, lijevi, srednji);
-				 SortTask<?> drugaPolovina = new SortTask<T>(niz, srednji + 1, desni);
+				 SortTask prvaPolovina = new SortTask(niz, lijevi, srednji);
+				 SortTask drugaPolovina = new SortTask(niz, srednji + 1, desni);
 				 
 				 invokeAll(prvaPolovina, drugaPolovina);
 				 //Spajamo rezultate

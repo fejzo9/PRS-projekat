@@ -1,9 +1,11 @@
 package algorithms;
 
-public class MergeSort <T extends Comparable<T>> implements Sort<T>{
+import java.lang.reflect.Array;
+
+public class MergeSort implements Sort{
 
 	@Override
-	public void sort(T[] niz, int lijevi, int desni) {
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
 	    if (lijevi < desni) {
 	        
 	        int srednji = (lijevi + desni) / 2;
@@ -23,8 +25,8 @@ public class MergeSort <T extends Comparable<T>> implements Sort<T>{
 	    int n2 = desni - srednji;
 	    
 	    /* Kreiranje pomocnih nizova */
-	    T[] L = (T[]) new Object[n1];
-	    T[] D = (T[]) new Object[n2];
+	    T[] L = (T[]) Array.newInstance(niz.getClass().getComponentType(), n1);
+	    T[] D = (T[]) Array.newInstance(niz.getClass().getComponentType(), n2);
 
 	    /* Upisujemo podatke u nove nizove */
 	    for (int i = 0; i < n1; ++i)
