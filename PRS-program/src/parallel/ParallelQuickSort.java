@@ -44,4 +44,9 @@ public class ParallelQuickSort implements Sort{
 		}
 	}
 	
+    @Override
+    public String toString() {
+    	return getClass().getSimpleName();
+    }
+	
 }

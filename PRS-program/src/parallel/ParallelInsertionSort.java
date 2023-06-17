@@ -63,4 +63,9 @@ public class ParallelInsertionSort implements Sort{
 			
 		}
     }
+    
+    @Override
+    public String toString() {
+    	return getClass().getSimpleName();
+    }
 }

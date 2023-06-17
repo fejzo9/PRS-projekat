@@ -62,4 +62,9 @@ public class ParallelSelectionSort implements Sort{
 			
 		}
     }
+    
+    @Override
+    public String toString() {
+    	return getClass().getSimpleName();
+    }
 }

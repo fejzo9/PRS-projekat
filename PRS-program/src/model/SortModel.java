@@ -6,22 +6,30 @@ import java.util.Random;
 
 public class SortModel {
 
-	public Integer[] getRandomInts(int size) {
+	/**
+	 * @param duzina
+	 * @return niz nasumicnih cijelih brojeva zadate duzine
+	 */
+	public Integer[] randomCijeli(int duzina) {
 		Random random = new Random();
-	      Integer[] array = new Integer[size];
-	      for (int i = 0; i < size; i++) {
-	         array[i] = random.nextInt();
+	      Integer[] niz = new Integer[duzina];
+	      for (int i = 0; i < duzina; i++) {
+	         niz[i] = random.nextInt();
 	      }
-	      return array;
+	      return niz;
 	}
 	
-	public Double[] getRandomDoubles(int size) {
+	/**
+	 * @param duzina
+	 * @return niz nasumicnih double brojeva zadate duzine
+	 */
+	public Double[] randomDoublesi(int duzina) {
 		Random random = new Random();
-	      Double[] array = new Double[size];
-	      for (int i = 0; i < size; i++) {
-	         array[i] = random.nextDouble(-1000000, 1000000);
+	      Double[] niz = new Double[duzina];
+	      for (int i = 0; i < duzina; i++) {
+	         niz[i] = random.nextDouble(-1000000, 1000000);
 	      }
-	      return array;
+	      return niz;
 	}
-	
+
 }

@@ -45,4 +45,9 @@ public class ParallelMergeSort implements Sort{
 		}
 		
 	}
+	
+    @Override
+    public String toString() {
+    	return getClass().getSimpleName();
+    }
 }

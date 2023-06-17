@@ -61,4 +61,9 @@ public class ParallelBubbleSort implements Sort{
 			
 		}
     }
+    
+    @Override
+    public String toString() {
+    	return getClass().getSimpleName();
+    }
 }
