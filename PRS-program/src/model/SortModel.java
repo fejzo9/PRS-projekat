@@ -17,7 +17,59 @@ import parallel.ParallelSelectionSort;
 
 
 public class SortModel {
-
+	
+	public String demonstrirajSortiranje(Algoritam algoritam, boolean paralelni, int duzina,
+			boolean cijeli) {
+		
+		String poruka = "Greska";
+		
+		Sort sorter = odaberiSort(algoritam, paralelni);
+		
+		if(cijeli) {
+			poruka = testiraj(sorter, randomCijeli(duzina));
+		} else {
+			poruka = testiraj(sorter, randomDoublesi(duzina));
+		}
+		return poruka;
+	}
+	
+	private <T extends Comparable<T>> String testiraj(Sort sorter, T[] niz) {
+		
+		double vrijemePocetka;
+		double vrijemeZavrsetka;
+		
+		ispis(niz);
+		vrijemePocetka = System.currentTimeMillis();
+		sorter.sort(niz, 0, niz.length - 1);
+		vrijemeZavrsetka = System.currentTimeMillis();
+		ispis(niz);
+		
+		return sorter + " sa nizom " + niz.getClass().getSimpleName() +
+				"\nVrijeme izvrsenja = " + (vrijemeZavrsetka - vrijemePocetka) + "ms\n";
+	}
+	
+	private Sort odaberiSort(Algoritam algoritam, boolean paralelni) {
+		Sort sorter = null;
+		switch (algoritam) {
+		case BUBBLE:
+			sorter = (paralelni) ? new ParallelBubbleSort() : new BubbleSort();
+			break;
+		case INSERTION:
+			sorter = (paralelni) ? new ParallelInsertionSort() : new InsertionSort();
+			break;
+		case MERGE:
+			sorter = (paralelni) ? new ParallelMergeSort() : new MergeSort();
+			break;
+		case QUICK:
+			sorter = (paralelni) ? new ParallelQuickSort() : new QuickSort();
+			break;
+		case SELECTION:
+			sorter = (paralelni) ? new ParallelSelectionSort() : new SelectionSort();
+			break;
+		}
+		return sorter;
+	}
+	
 	/**
 	 * @param duzina
 	 * @return niz nasumicnih cijelih brojeva zadate duzine
@@ -43,55 +95,12 @@ public class SortModel {
 	      }
 	      return niz;
 	}
-	
-	public String demonstrirajSortiranje(Algoritam algoritam, boolean paralelni, int duzina,
-			boolean cijeli) {
-		
-		String poruka = "Greska";
-		
-		Sort sorter = odaberiSort(algoritam, paralelni);
-		
-		if(cijeli) {
-			poruka = testiraj(sorter, randomCijeli(duzina));
-		} else {
-			poruka = testiraj(sorter, randomDoublesi(duzina));
-		}
-		return poruka;
-	}
-	
-	private Sort odaberiSort(Algoritam algoritam, boolean paralelni) {
-		Sort sorter = null;
-		switch (algoritam) {
-		case BUBBLE:
-			sorter = (paralelni) ? new ParallelBubbleSort() : new BubbleSort();
-			break;
-		case INSERTION:
-			sorter = (paralelni) ? new ParallelInsertionSort() : new InsertionSort();
-			break;
-		case MERGE:
-			sorter = (paralelni) ? new ParallelMergeSort() : new MergeSort();
-			break;
-		case QUICK:
-			sorter = (paralelni) ? new ParallelQuickSort() : new QuickSort();
-			break;
-		case SELECTION:
-			sorter = (paralelni) ? new ParallelSelectionSort() : new SelectionSort();
-			break;
-		}
-		return sorter;
-	}
-	
-	private <T extends Comparable<T>> String testiraj(Sort sorter, T[] niz) {
-		
-		double vrijemePocetka;
-		double vrijemeZavrsetka;
-		
-		vrijemePocetka = System.currentTimeMillis();
-		sorter.sort(niz, 0, niz.length - 1);
-		vrijemeZavrsetka = System.currentTimeMillis();
-		
-		return sorter + " sa nizom " + niz.getClass().getSimpleName() +
-				"\nVrijeme izvrsenja = " + (vrijemeZavrsetka - vrijemePocetka) + "ms\n";
+
+	public static <T extends Comparable<T>> void ispis(T[] niz) {
+		int i;
+		System.out.print("\nNiz: ");
+		for(i=0;i<niz.length;i++)
+			System.out.print(niz[i] + " ");
 	}
 	
 }
