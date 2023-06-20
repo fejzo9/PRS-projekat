@@ -1,18 +1,7 @@
 package main;
 
-import java.util.concurrent.ForkJoinPool;
-
-import algorithms.BubbleSort;
-import algorithms.InsertionSort;
 import algorithms.MergeSort;
-import algorithms.QuickSort;
-import algorithms.SelectionSort;
 import appsInterface.AppsFrame;
-import parallel.ParallelBubbleSort;
-import parallel.ParallelInsertionSort;
-import parallel.ParallelMergeSort;
-import parallel.ParallelQuickSort;
-import parallel.ParallelSelectionSort;
 
 public class Main {
 	public static void main(String[] args) {
