@@ -4,26 +4,28 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
 import algorithms.MergeSort;
+import algorithms.Sort;
 
-public class ParallelBubbleSort {
+public class ParallelBubbleSort implements Sort{
 
-    public static void sort(int[] niz, int lijevi, int desni) {
+	@Override
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
         SortTask task = new SortTask(niz, lijevi, desni);
         ForkJoinPool pool = new ForkJoinPool();
         pool.invoke(task);
     }
     
-    public static class SortTask extends RecursiveAction {
+    public static class SortTask <T extends Comparable<T>> extends RecursiveAction {
     	
     	//Efikasnost granice mozemo eksperimentalno dokazati
     	//a ako stavimo da je = 100 onda ce samo sekvencijalno sortirati nas mali niz
     	//zato sada stoji 4
     	private static final int GRANICA = 4;
-		private int[] niz;
+		private T[] niz;
 		private int lijevi;
 		private int desni;
 
-		public SortTask(int[] niz, int lijevi, int desni) {
+		public SortTask(T[] niz, int lijevi, int desni) {
 			super();
 			this.niz = niz;
 			this.lijevi = lijevi;
@@ -37,11 +39,10 @@ public class ParallelBubbleSort {
 				 for (int i = lijevi + 1; i < desni + 1; i++) {
 		                for (int j = lijevi; j < desni; j++) {
 		                	
-		                    if (niz[j] > niz[j + 1]) {
-		                    	
-		                        int temp = niz[j];
-		                        niz[j] = niz[j + 1];
-		                        niz[j + 1] = temp;
+		                    if (niz[j].compareTo(niz[j+1]) > 0) {
+		                   	 T temp = niz[j];
+		               		 niz[j] = niz[j + 1];
+		               		 niz[j + 1] = temp;
 		                    }
 		                }
 					}
@@ -59,5 +60,10 @@ public class ParallelBubbleSort {
 			}
 			
 		}
+    }
+    
+    @Override
+    public String toString() {
+    	return getClass().getSimpleName();
     }
 }
