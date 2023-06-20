@@ -1,8 +1,9 @@
 package algorithms;
 
-public class QuickSort {
+public class QuickSort implements Sort {
 	
-	 public static void sort(int[] niz, int lijevi, int desni) {
+	@Override
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
 	        if (lijevi < desni) {
 	            int pivotIndex = partition(niz, lijevi, desni);
 	            sort(niz, lijevi, pivotIndex - 1);
@@ -10,20 +11,25 @@ public class QuickSort {
 	        }
 	    }
 	 
-	 public static int partition(int[] niz, int lijevi, int desni) {
-	        int pivot = niz[desni];
+	 public static <T extends Comparable<T>> int partition(T[] niz, int lijevi, int desni) {
+	        T pivot = niz[desni];
 	        int i = lijevi - 1;
 	        for (int j = lijevi; j < desni; j++) {
-	            if (niz[j] < pivot) {
+	            if (niz[j].compareTo(pivot) < 0) {
 	                i++;
-	                int temp = niz[i];
+	                T temp = niz[i];
 	                niz[i] = niz[j];
 	                niz[j] = temp;
 	            }
 	        }
-	        int temp = niz[i + 1];
+	        T temp = niz[i + 1];
 	        niz[i + 1] = niz[desni];
 	        niz[desni] = temp;
 	        return i + 1;
 	    }
+	 
+		@Override
+		public String toString() {
+			return "Sekvencijalni " + getClass().getSimpleName();
+		}
 }

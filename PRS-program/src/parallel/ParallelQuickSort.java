@@ -4,23 +4,24 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
 import algorithms.QuickSort;
-import parallel.ParallelMergeSort.SortTask;
+import algorithms.Sort;
 
-public class ParallelQuickSort {
+public class ParallelQuickSort implements Sort{
 
-	public static void sort(int[] niz, int lijevi, int desni) {
+	@Override
+	public <T extends Comparable<T>> void sort(T[] niz, int lijevi, int desni) {
 		SortTask task = new SortTask(niz, lijevi, desni);
 		ForkJoinPool pool = new ForkJoinPool();
 		pool.invoke(task);
 	}
 	
-	public static class SortTask extends RecursiveAction {
+	public static class SortTask <T extends Comparable<T>> extends RecursiveAction {
 		
-		private int[] niz;
+		private T[] niz;
 		private int lijevi;
 		private int desni;
 		
-		public SortTask(int[] niz, int lijevi, int desni) {
+		public SortTask(T[] niz, int lijevi, int desni) {
 			super();
 			this.niz = niz;
 			this.lijevi = lijevi;
@@ -41,5 +42,10 @@ public class ParallelQuickSort {
 			}
 		}
 	}
+	
+    @Override
+    public String toString() {
+    	return getClass().getSimpleName();
+    }
 	
 }
